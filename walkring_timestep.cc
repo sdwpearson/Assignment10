@@ -37,7 +37,6 @@ void walkring_timestep(rarray<int,1>& walkerpositions, int N, double prob)
     // Create MPI environment
     int size, rank;
     int Z = walkerpositions.size();
-    MPI_Init(&argc, &argv);
     MPI_Comm_size(MPI_COMM_WORLD, &size);
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
