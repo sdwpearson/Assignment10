@@ -52,14 +52,17 @@ int main(int argc, char *argv[])
   // Initial output to screen
   walkring_output(file, 0, time, N, w, outputcols);
 
-  // Initialize MPI
-  MPI_Init(&argc, &argv);
-  
   // Time evolution
   for (int step = 1; step <= numSteps; step++) {
 
+    // Initialize MPI
+    MPI_Init(&argc, &argv);
+
     // Compute next time point
     walkring_timestep(w, N, p);
+    
+    // Finish MPI
+    MPI_Finalize();
 
     // Update time
     time += dt;
@@ -68,9 +71,6 @@ int main(int argc, char *argv[])
     if (step % outputEvery == 0 and step > 0)      
       walkring_output(file, step, time, N, w, outputcols);
   }
-  
-  // Finish MPI
-  MPI_Finalize();
 
   // Close file
   walkring_output_finish(file);
