@@ -75,6 +75,7 @@ void walkring_timestep(rarray<int,1>& walkerpositions, int N, double prob)
         MPI_Gather(scattered_walkers.data(), recv_count, MPI_INT, walkerpositions.data(), send_count, MPI_INT, root, MPI_COMM_WORLD);
     else 
         MPI_Gather(scattered_walkers.data(), recv_count, MPI_INT, NULL, send_count, MPI_INT, root, MPI_COMM_WORLD);
+
 }
 
 

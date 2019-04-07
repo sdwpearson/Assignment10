@@ -32,9 +32,6 @@ int main(int argc, char *argv[])
   std::string paramFilename = argc>1?argv[1]:"params.ini";
   read_parameters(paramFilename, L, D, T, dx, dt, Z, datafile, time_between_output);
 
-  // Initialize MPI
-  MPI_Init(&argc, &argv);
-
   // Compute derived parameters 
   const int numSteps = int(T/dt + 0.5);  // number of steps to take
   const int N = int(L/dx + 0.5);         // number of grid points
@@ -55,6 +52,9 @@ int main(int argc, char *argv[])
   // Initial output to screen
   walkring_output(file, 0, time, N, w, outputcols);
 
+  // Initialize MPI
+  MPI_Init(&argc, &argv);
+  
   // Time evolution
   for (int step = 1; step <= numSteps; step++) {
 
@@ -69,6 +69,9 @@ int main(int argc, char *argv[])
       walkring_output(file, step, time, N, w, outputcols);
   }
   
+  // Finish MPI
+  MPI_Finalize();
+
   // Close file
   walkring_output_finish(file);
 
