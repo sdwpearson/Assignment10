@@ -40,7 +40,7 @@ void walkring_timestep(rarray<int,1>& walkerpositions, int N, double prob)
     MPI_Comm_size(MPI_COMM_WORLD, &size);
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
-    int send_count = Z/rank;
+    int send_count = Z/size;
     int recv_count = send_count;
     int root = 0;
     rarray<int,1> scattered_walkers(recv_count);
