@@ -32,11 +32,11 @@
 //  have been given a chance to move on position to the left or two
 //  the right).
 //
-void walkring_timestep(rarray<int,1>& walkerpositions, int N, double prob, rank)
+void walkring_timestep(rarray<int,1>& walkerpositions, int N, double prob, process_rank)
 {
     int Z = walkerpositions.size();
 
-    int seed = (rank+1)*13;
+    int seed = (process_rank+1)*13;
     static std::mt19937 engine(seed);
     static std::uniform_real_distribution<> uniform;
 
