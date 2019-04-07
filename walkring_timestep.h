@@ -2,6 +2,7 @@
 #define WALKRINGTIMESTEPH
 
 #include <rarray>
+#include <rarrayio>
 
 // Perform a single time step for the random walkers
 //
