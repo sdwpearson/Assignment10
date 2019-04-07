@@ -54,6 +54,10 @@ int main(int argc, char *argv[])
 
   // Initialize MPI
   MPI_Init(&argc, &argv);
+  int send_count = Z/size;
+  int recv_count = send_count;
+  int root = 0;
+  rarray<int,1> scattered_walkers(recv_count);
   int size, rank;
   MPI_Comm_size(MPI_COMM_WORLD, &size);
   MPI_Comm_rank(MPI_COMM_WORLD, &rank);
@@ -61,8 +65,16 @@ int main(int argc, char *argv[])
   // Time evolution
   for (int step = 1; step <= numSteps; step++) {
 
+    //Distribute the array of walkers
+    MPI_Scatter(walkerpositions.data(), send_count, MPI_INT, scattered_walkers.data(), recv_count,  MPI_INT, root,  MPI_COMM_WORLD);
+
     // Compute next time point
-    walkring_timestep(w, N, p);
+    walkring_timestep(w, N, p, rank);    
+
+    if(rank == root)
+        MPI_Gather(scattered_walkers.data(), recv_count, MPI_INT, walkerpositions.data(), send_count, MPI_INT, root, MPI_COMM_WORLD);
+    else 
+        MPI_Gather(scattered_walkers.data(), recv_count, MPI_INT, NULL, send_count, MPI_INT, root, MPI_COMM_WORLD);
 
     // Update time
     time += dt;
