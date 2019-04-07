@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
     // Open a file for data output
     std::ofstream file;
     walkring_output_init(file, datafile);  walkring_output(file, 0, time, N, w, outputcols);
-  ]
+  }
 
   // Time evolution
   for (int step = 1; step <= numSteps; step++) {
