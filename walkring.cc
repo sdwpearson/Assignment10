@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
   int size, rank;
   MPI_Comm_size(MPI_COMM_WORLD, &size);
   MPI_Comm_rank(MPI_COMM_WORLD, &rank);
-  
+
   int send_count = Z/size;
   int recv_count = send_count;
   int root = 0;
@@ -67,13 +67,13 @@ int main(int argc, char *argv[])
   for (int step = 1; step <= numSteps; step++) {
 
     //Distribute the array of walkers
-    MPI_Scatter(walkerpositions.data(), send_count, MPI_INT, scattered_walkers.data(), recv_count,  MPI_INT, root,  MPI_COMM_WORLD);
+    MPI_Scatter(w.data(), send_count, MPI_INT, scattered_walkers.data(), recv_count,  MPI_INT, root,  MPI_COMM_WORLD);
 
     // Compute next time point
-    walkring_timestep(w, N, p, rank);    
+    walkring_timestep(scattered_walkers, recv_count, p, rank);    
 
     if(rank == root)
-        MPI_Gather(scattered_walkers.data(), recv_count, MPI_INT, walkerpositions.data(), send_count, MPI_INT, root, MPI_COMM_WORLD);
+        MPI_Gather(scattered_walkers.data(), recv_count, MPI_INT, w.data(), send_count, MPI_INT, root, MPI_COMM_WORLD);
     else 
         MPI_Gather(scattered_walkers.data(), recv_count, MPI_INT, NULL, send_count, MPI_INT, root, MPI_COMM_WORLD);
 
