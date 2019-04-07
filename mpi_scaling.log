@@ -1,0 +1,19 @@
+Seq	Host	Starttime	JobRuntime	Send	Receive	Exitval	Signal	Command
+1	:	1554662806.227	   399.219	0	3713	0	0	mpiexec -n 32 walkring
+2	:	1554663205.451	   398.574	0	3713	0	0	mpiexec -n 30 walkring
+3	:	1554663604.048	   406.539	0	3713	0	0	mpiexec -n 28 walkring
+4	:	1554664010.595	   431.269	0	3713	0	0	mpiexec -n 24 walkring
+5	:	1554664441.878	   447.433	0	3713	0	0	mpiexec -n 22 walkring
+6	:	1554664889.315	   454.279	0	3713	0	0	mpiexec -n 21 walkring
+7	:	1554665343.601	   502.090	0	3713	0	0	mpiexec -n 18 walkring
+8	:	1554665845.698	   528.647	0	3713	0	0	mpiexec -n 16 walkring
+9	:	1554666374.351	   549.836	0	3713	0	0	mpiexec -n 15 walkring
+10	:	1554666924.193	   642.422	0	3713	0	0	mpiexec -n 12 walkring
+11	:	1554667566.622	   688.703	0	3713	0	0	mpiexec -n 11 walkring
+12	:	1554668255.331	   746.157	0	3713	0	0	mpiexec -n 10 walkring
+13	:	1554669001.494	   814.340	0	3713	0	0	mpiexec -n 9 walkring
+14	:	1554669815.839	   908.048	0	3713	0	0	mpiexec -n 8 walkring
+15	:	1554670723.894	  1017.082	0	3714	0	0	mpiexec -n 7 walkring
+16	:	1554671740.983	  1153.343	0	3716	0	0	mpiexec -n 6 walkring
+17	:	1554672894.333	  1359.299	0	3719	0	0	mpiexec -n 5 walkring
+18	:	1554674253.647	  1641.477	0	3721	0	0	mpiexec -n 4 walkring
