@@ -52,8 +52,6 @@ void walkring_timestep(rarray<int,1>& walkerpositions, int N, double prob)
     static std::mt19937 engine(seed);
     static std::uniform_real_distribution<> uniform;
 
-    std::cout << scattered_walkers;
-
     // move all walkers
     for (int i = 0; i < recv_count; i++) {
         double r = uniform(engine); // draws a random number
