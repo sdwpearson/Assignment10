@@ -57,10 +57,10 @@ int main(int argc, char *argv[])
   int root = 0;
   rarray<int,1> scattered_walkers(recv_count);
 
+  // Open a file for data output
+  std::ofstream file;
   // Initial output to screen
   if(rank == 0) {
-    // Open a file for data output
-    std::ofstream file;
     walkring_output_init(file, datafile);  walkring_output(file, 0, time, N, w, outputcols);
   }
 
