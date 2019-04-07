@@ -49,8 +49,6 @@ int main(int argc, char *argv[])
   // Open a file for data output
   std::ofstream file;
   walkring_output_init(file, datafile);  
-  // Initial output to screen
-  walkring_output(file, 0, time, N, w, outputcols);
 
   // Initialize MPI
   MPI_Init(&argc, &argv);
@@ -63,6 +61,10 @@ int main(int argc, char *argv[])
   int root = 0;
   rarray<int,1> scattered_walkers(recv_count);
 
+  // Initial output to screen
+  if(rank == 0)
+    walkring_output(file, 0, time, N, w, outputcols);
+
   // Time evolution
   for (int step = 1; step <= numSteps; step++) {
 
@@ -70,7 +72,7 @@ int main(int argc, char *argv[])
     MPI_Scatter(w.data(), send_count, MPI_INT, scattered_walkers.data(), recv_count,  MPI_INT, root,  MPI_COMM_WORLD);
 
     // Compute next time point
-    walkring_timestep(scattered_walkers, recv_count, p, rank);    
+    walkring_timestep(scattered_walkers, N, p, rank);    
 
     if(rank == root)
         MPI_Gather(scattered_walkers.data(), recv_count, MPI_INT, w.data(), send_count, MPI_INT, root, MPI_COMM_WORLD);
