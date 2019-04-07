@@ -13,7 +13,7 @@ module load gcc openmpi boost gnu-parallel
 cd $SLURM_SUBMIT_DIR
   
 # EXECUTION COMMAND 
-parallel --joblog mpi_scaling_reverse.log -j $SLURM_NTASKS_PER_NODE --no-run-if-empty < mpi_subjobs_walkring_rev
+parallel --joblog mpi_scaling_reverse.log -j 1 --no-run-if-empty < mpi_subjobs_walkring_rev
 
 
 
