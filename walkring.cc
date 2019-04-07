@@ -54,13 +54,14 @@ int main(int argc, char *argv[])
 
   // Initialize MPI
   MPI_Init(&argc, &argv);
+  int size, rank;
+  MPI_Comm_size(MPI_COMM_WORLD, &size);
+  MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+  
   int send_count = Z/size;
   int recv_count = send_count;
   int root = 0;
   rarray<int,1> scattered_walkers(recv_count);
-  int size, rank;
-  MPI_Comm_size(MPI_COMM_WORLD, &size);
-  MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
   // Time evolution
   for (int step = 1; step <= numSteps; step++) {
