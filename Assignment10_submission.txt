@@ -1,0 +1,317 @@
+Name: Stewart Pearson
+Date: April 7, 2019
+Assignment 10 submission
+
+Working directory: /scratch/s/svhum/pearso69/PHY1610/Assignment10/antsonring
+
+All source code is located in the working directory (only modified walkring.cc).
+
+
+
+------------------------------------------------------------------------------------------------------------------------
+Output of git log --stat
+------------------------------------------------------------------------------------------------------------------------
+
+commit 012464989a12407564a46840434ed486546b666e
+Author: Stewart Pearson <stewart.pearson@mail.utoronto.ca>
+Date:   Sun Apr 7 18:55:36 2019 -0400
+
+    [PHY1610] Add logs of first scaling run
+
+ .gitignore              |  3 +++
+ mpi_scaling.log         | 19 +++++++++++++++++++
+ mpi_scaling_reverse.log |  1 +
+ output.dat              | 50 +++++++++++++++++++++++++++++++++++++++++++++++++
+ 4 files changed, 73 insertions(+)
+
+commit 6c1174816a8c8bfa61180c9d7bd369d6afcffaee
+Author: sdwpearson <sdwpearson@gmail.com>
+Date:   Sun Apr 7 17:34:50 2019 -0400
+
+    [PHY1610] Reversed the task order and try with j =1
+
+ MPI_scaling.slurm | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit ac9aee2929e8df0a59b13d97e592ca7b5b258dec
+Author: sdwpearson <sdwpearson@gmail.com>
+Date:   Sun Apr 7 17:04:42 2019 -0400
+
+    [PHY1610] Fixed  Tasks variable
+
+ MPI_scaling.slurm | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 6c7977bc372cba9d1c206121becf689f4f709745
+Author: sdwpearson <sdwpearson@gmail.com>
+Date:   Sun Apr 7 17:00:46 2019 -0400
+
+    [PHY1610] Reversed the task order and try with more sophisticated GNU parallel
+
+ MPI_scaling.slurm        |  2 +-
+ mpi_subjobs_walkring_rev | 21 +++++++++++++++++++++
+ 2 files changed, 22 insertions(+), 1 deletion(-)
+
+commit 0125c1216223acd13779f97250a22ab8a08d2e07
+Author: sdwpearson <sdwpearson@gmail.com>
+Date:   Sun Apr 7 14:45:51 2019 -0400
+
+    [PHY1610] Allow 1 job per node
+
+ MPI_scaling.slurm | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit d9953d396fe70cd0a9be0cf309f34389649487fe
+Author: sdwpearson <sdwpearson@gmail.com>
+Date:   Sun Apr 7 14:44:46 2019 -0400
+
+    [PHY1610] Allow 16 jobs per node
+
+ MPI_scaling.slurm | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit c17a7baad2ffe44b5aaaf62cffef794ce1015272
+Author: sdwpearson <sdwpearson@gmail.com>
+Date:   Sun Apr 7 14:40:23 2019 -0400
+
+    [PHY1610] Adding complete scaling script
+
+ MPI_scaling.slurm    |  2 +-
+ mpi_subjobs_walkring | 20 +++++++++++++++++++-
+ 2 files changed, 20 insertions(+), 2 deletions(-)
+
+commit f4d450652542dfd1020c532fb07ef931a9528bd9
+Author: sdwpearson <sdwpearson@gmail.com>
+Date:   Sun Apr 7 14:00:35 2019 -0400
+
+    [PHY1610] Adding scaling script
+
+ MPI_scaling.slurm    | 19 +++++++++++++++++++
+ mpi_subjobs_walkring |  3 +++
+ 2 files changed, 22 insertions(+)
+
+commit cfbc3df8a59f7b5a4e689b3972b71de475f6a7d4
+Author: sdwpearson <sdwpearson@gmail.com>
+Date:   Sat Apr 6 21:38:26 2019 -0400
+
+    [PHY1610]
+
+ walkring.cc | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit cb1eb7e857e11b2978bb3f1de551221d01ba8e69
+Author: sdwpearson <sdwpearson@gmail.com>
+Date:   Sat Apr 6 21:36:52 2019 -0400
+
+    [PHY1610] Forgot a closing }
+
+ walkring.cc | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 81269c0dea18ed5eeae0135a9278271de3f12e2e
+Author: sdwpearson <sdwpearson@gmail.com>
+Date:   Sat Apr 6 21:36:19 2019 -0400
+
+    [PHY1610] Adding full number of walkers
+
+ params.ini  |  2 +-
+ walkring.cc | 11 +++++------
+ 2 files changed, 6 insertions(+), 7 deletions(-)
+
+commit 4af95516c0fe5fa7594af01da4cb81156b3be469
+Author: sdwpearson <sdwpearson@gmail.com>
+Date:   Sat Apr 6 21:18:26 2019 -0400
+
+    [PHY1610] put N back in timestep call
+
+ walkring.cc | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+
+commit 93239b22a85c9f64aa03cba9d7d76aae028b3d62
+Author: sdwpearson <sdwpearson@gmail.com>
+Date:   Sat Apr 6 21:15:30 2019 -0400
+
+    [PHY1610] forgot int designator for process_rank
+
+ walkring_timestep.cc | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 99de4c176f62a408fcfac62f207dfa866a673214
+Author: sdwpearson <sdwpearson@gmail.com>
+Date:   Sat Apr 6 21:14:43 2019 -0400
+
+    [PHY1610] Remove mpi header
+
+ walkring_timestep.cc | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+commit 19f5bce4380e18be5e7ecbf4bbd2ff1c6ce11fed
+Author: sdwpearson <sdwpearson@gmail.com>
+Date:   Sat Apr 6 21:13:13 2019 -0400
+
+    [PHY1610] change rank name so it doesn't conflict
+
+ walkring_timestep.cc | 4 ++--
+ walkring_timestep.h  | 2 +-
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+commit 0ee1393a2556cf284738cd4332f5612f1069193c
+Author: sdwpearson <sdwpearson@gmail.com>
+Date:   Sat Apr 6 21:11:58 2019 -0400
+
+    [PHY1610]
+
+ walkring.cc | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+commit a8fe2b131e658c4d6c98d2e21b49a37b373462e1
+Author: sdwpearson <sdwpearson@gmail.com>
+Date:   Sat Apr 6 21:10:31 2019 -0400
+
+    [PHY1610] Shuffle variables which are dependent on eachtoerh so it compiles
+
+ walkring.cc | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+
+commit 7bec86a7feb0314ae0cde8801b200d0f974e818a
+Author: sdwpearson <sdwpearson@gmail.com>
+Date:   Sat Apr 6 21:09:47 2019 -0400
+
+    [PHY1610] Bring it all into main
+
+ walkring.cc          | 14 +++++++++++++-
+ walkring_timestep.cc | 31 +++++++------------------------
+ walkring_timestep.h  |  2 +-
+ 3 files changed, 21 insertions(+), 26 deletions(-)
+
+commit 7ad28c2f3887e1306f0a0f6162c1dc45f0b5ab27
+Author: sdwpearson <sdwpearson@gmail.com>
+Date:   Sat Apr 6 20:32:27 2019 -0400
+
+    [PHY1610] moving them out of the loop
+
+ params.ini  |  2 +-
+ walkring.cc | 17 ++++++++++-------
+ 2 files changed, 11 insertions(+), 8 deletions(-)
+
+commit 547d0bc79290257be8328a1a179c9aa130ce3699
+Author: sdwpearson <sdwpearson@gmail.com>
+Date:   Sat Apr 6 20:24:29 2019 -0400
+
+    [PHY1610] Move MPI into the for loop
+
+ walkring.cc | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+commit 96a9d7255f571ceda1f82f2068a60541398f1bd1
+Author: sdwpearson <sdwpearson@gmail.com>
+Date:   Sat Apr 6 20:22:52 2019 -0400
+
+    [PHY1610] Forgot MPI_Finalize()
+
+ walkring.cc          | 9 ++++++---
+ walkring_timestep.cc | 1 +
+ 2 files changed, 7 insertions(+), 3 deletions(-)
+
+commit a20d6f013c02aaa638f34e077e4dea8ef9558e48
+Author: sdwpearson <sdwpearson@gmail.com>
+Date:   Sat Apr 6 20:19:54 2019 -0400
+
+    [PHY1610] Removing printing of array
+
+ walkring_timestep.cc | 2 --
+ 1 file changed, 2 deletions(-)
+
+commit 73810acf8761b5bd14a150bf86bbc0f5d17f3fdb
+Author: sdwpearson <sdwpearson@gmail.com>
+Date:   Sat Apr 6 20:18:25 2019 -0400
+
+    [PHY1610] Dividing by rank instead of size
+
+ walkring_timestep.cc | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit dad8f6f57b79d304e47390bbce2b204d1b029421
+Author: sdwpearson <sdwpearson@gmail.com>
+Date:   Sat Apr 6 20:16:47 2019 -0400
+
+    [PHY1610] Forgot to add mpi.h to main
+
+ walkring.cc | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit e5cab0455fbd8928f8c8da38de2e54105f6021ef
+Author: sdwpearson <sdwpearson@gmail.com>
+Date:   Sat Apr 6 20:15:52 2019 -0400
+
+    [PHY1610] Moving MPI_Init to main
+
+ walkring.cc          | 3 +++
+ walkring_timestep.cc | 1 -
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+
+commit 9775fd4f295499ad02060bf83a937f6a5a4ba147
+Author: sdwpearson <sdwpearson@gmail.com>
+Date:   Sat Apr 6 20:14:19 2019 -0400
+
+    [PHY1610] Initial pass at implementing MPI
+
+ params.ini           |  2 +-
+ walkring_timestep.cc | 43 ++++++++++++++++++++++++++++++++++---------
+ walkring_timestep.h  |  1 +
+ 3 files changed, 36 insertions(+), 10 deletions(-)
+
+commit 9780f53e505f80dba0a0357fa2faf7f2edad591e
+Author: sdwpearson <sdwpearson@gmail.com>
+Date:   Sat Apr 6 16:32:45 2019 -0400
+
+    [PHY1610] Added MPI compiler wrapper to Makefile
+
+ Makefile | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+commit 5287914b9b2159eaa95202b2971575eca1ffd433
+Author: Ramses van Zon <rzon@scinet.utoronto.ca>
+Date:   Fri Mar 29 20:28:34 2019 -0400
+
+    Increased spatial and temporaral resolution, leading to longer runtimes
+
+ params.ini | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+commit b5c43519293a67a2afb377a118ec248c84c83df5
+Author: Ramses van Zon <rzon@scinet.utoronto.ca>
+Date:   Fri Mar 29 20:27:16 2019 -0400
+
+    Solutions for the diffusion and random walk.
+
+ diffring_timestep.cc | 30 ++++++++++++++++++++----------
+ walkring_timestep.cc | 26 +++++++++++++++++++++-----
+ 2 files changed, 41 insertions(+), 15 deletions(-)
+
+commit dd1ef68f8eaa1cd69f305240b5da7dc43cce6a2d
+Author: Ramses van Zon <rzon@scinet.utoronto.ca>
+Date:   Fri Mar 8 11:52:40 2019 -0500
+
+    assignent 7 code
+
+ Makefile             |  65 ++++++++++++++++++++++
+ assignment7.pdf      | Bin 0 -> 241905 bytes
+ diffring.cc          |  76 ++++++++++++++++++++++++++
+ diffring_output.cc   |  59 ++++++++++++++++++++
+ diffring_output.h    |  35 ++++++++++++
+ diffring_timestep.cc |  29 ++++++++++
+ diffring_timestep.h  |  25 +++++++++
+ parameters.cc        |  71 ++++++++++++++++++++++++
+ parameters.h         |  25 +++++++++
+ params.ini           |   8 +++
+ sparkline.cc         | 149 +++++++++++++++++++++++++++++++++++++++++++++++++++
+ sparkline.h          | 102 +++++++++++++++++++++++++++++++++++
+ ticktock.cc          |  54 +++++++++++++++++++
+ ticktock.h           |  20 +++++++
+ walkring.cc          |  74 +++++++++++++++++++++++++
+ walkring_output.cc   |  61 +++++++++++++++++++++
+ walkring_output.h    |  37 +++++++++++++
+ walkring_timestep.cc |  42 +++++++++++++++
+ walkring_timestep.h  |  31 +++++++++++
+ 19 files changed, 963 insertions(+)
